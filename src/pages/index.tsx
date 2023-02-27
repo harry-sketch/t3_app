@@ -1,11 +1,16 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 
+// Auth
+import { useSession } from "next-auth/react";
+
 // Wrapper
 import { Wrapper } from "@/components/Common/Wrapper/Wrapper";
 import { Footer } from "@/components/Common/Footer/Footer";
+import { Showcase } from "@/components/Showcase/Showcase";
 
 const Home: NextPage = () => {
+  const { status } = useSession();
   return (
     <>
       <Head>
@@ -14,10 +19,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="min-h-screen w-full bg-custom-1">
-        <Wrapper className="mx-auto  h-screen max-w-5xl">
-          <main>sed</main>
+        <Wrapper className="mx-auto  h-screen max-w-7xl">
+          <Showcase />
         </Wrapper>
-        <Footer />
+        {status === "unauthenticated" ? <Footer /> : null}
       </main>
     </>
   );

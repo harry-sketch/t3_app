@@ -28,6 +28,6 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.mjs"
-  ],
+, "src/components/Common/ShowcaseWrapper"  ],
   "exclude": ["node_modules"]
 }
