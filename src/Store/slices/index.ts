@@ -1,15 +1,15 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
-import { type ITwitterState } from "../types";
-import { createTestSlice } from "./createTestSlice";
+import type { ITwitterState } from "../types";
+import { createTabSlice } from "./createTabSlice";
 
 const useTwitterStore = create<ITwitterState>()(
   devtools(
     (...a) => ({
-      ...createTestSlice(...a),
+      ...createTabSlice(...a),
     }),
     {
-      name: "client-store",
+      name: "twitter-store",
     }
   )
 );

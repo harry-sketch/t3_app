@@ -1,3 +1,3 @@
-import type { ITestState } from "../slices/createTestSlice";
+import type { IActiveTabState } from "../slices/createTabSlice";
 
-export type ITwitterState = ITestState;
+export type ITwitterState = IActiveTabState;
