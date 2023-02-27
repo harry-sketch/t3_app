@@ -6,7 +6,7 @@ module.exports = {
       colors: {
         primary: "#1D9BF0",
         custom: {
-          1: "#eff3f4",
+          1: "#dae7ef",
         },
       },
     },
