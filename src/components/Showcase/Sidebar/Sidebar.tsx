@@ -20,6 +20,7 @@ const Sidebar = () => {
     {
       title: "home",
       icon: (
+        // Todo: Change the active and default color states for icons
         <AiFillHome size={30} color={activeTab === "home" ? "black" : "gray"} />
       ),
     },
@@ -42,6 +43,7 @@ const Sidebar = () => {
           onClick={() => setActiveTab(title)}
           type="button"
           key={`sidebar-${title}`}
+          // Todo:Add suitable bg for active states
           className={cn(
             "mb-2.5 flex items-center gap-2 last:mb-0",
             activeTab === title ? "" : ""
