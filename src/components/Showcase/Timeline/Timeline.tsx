@@ -1,4 +1,7 @@
+// Store
 import useTwitterStore from "@/Store/slices";
+
+// Type
 import type { TaActiveTab } from "@/Store/slices/createTabSlice";
 
 export const Timeline = () => {

@@ -1,17 +1,20 @@
-import { useSession, signOut } from "next-auth/react";
-import Image from "next/image";
 import { useState } from "react";
+import Image from "next/image";
+
+// Auth
+import { useSession, signOut } from "next-auth/react";
 
 export const AccountComp = () => {
-  const { data } = useSession();
-
+  // Local States
   const [isOpen, setIsOpen] = useState(false);
+
+  const { data } = useSession();
 
   return (
     <button
       onClick={() => setIsOpen(!isOpen)}
       type="button"
-      className="absolute bottom-20 left-0 flex w-3/4 items-center gap-2 rounded-xl bg-custom-2 p-2"
+      className="absolute bottom-20 left-0 flex w-3/4 items-center gap-2 rounded-xl bg-primary p-2"
     >
       {data?.user.image ? (
         <Image
@@ -23,7 +26,7 @@ export const AccountComp = () => {
         />
       ) : null}
 
-      <span className="text-xl font-semibold capitalize">
+      <span className="text-xl font-semibold capitalize text-slate-50">
         {data?.user.name}
       </span>
 
@@ -33,7 +36,7 @@ export const AccountComp = () => {
           type="button"
           className="absolute bottom-16 left-0 w-full rounded-xl bg-slate-300 p-2 text-base font-semibold text-slate-600"
         >
-          Sign out
+          Logout
         </button>
       ) : null}
     </button>

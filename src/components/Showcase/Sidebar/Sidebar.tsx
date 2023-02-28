@@ -4,10 +4,16 @@ import { AiFillHome, AiFillProfile } from "react-icons/ai";
 // Utils
 import { cn } from "@/utils/helpers";
 
+// Auth
+import { useSession } from "next-auth/react";
+
 // Store
 import useTwitterStore from "@/Store/slices";
+
+// Type
 import type { TaActiveTab } from "@/Store/slices/createTabSlice";
-import { useSession } from "next-auth/react";
+
+// Components
 import { AccountComp } from "./AccountComp/AccountComp";
 
 const Sidebar = () => {
@@ -42,28 +48,30 @@ const Sidebar = () => {
 
   return (
     <div className="relative h-full w-[20rem] p-4">
-      {tabs.map(({ icon, title }) => (
-        <button
-          onClick={() => setActiveTab(title)}
-          type="button"
-          key={`sidebar-${title}`}
-          // Todo:Add suitable bg for active states
-          className={cn(
-            "mb-2.5 flex items-center gap-2 last:mb-0",
-            activeTab === title ? "" : ""
-          )}
-        >
-          <span>{icon}</span>
-          <span
+      {tabs.map(({ icon, title }) => {
+        return (
+          <button
+            onClick={() => setActiveTab(title)}
+            type="button"
+            key={`sidebar-${title}`}
+            // Todo:Add suitable bg for active states
             className={cn(
-              activeTab === title ? "font-bold" : "font-normal",
-              "text-base"
+              "mb-2.5 flex items-center gap-2 last:mb-0",
+              activeTab === title ? "" : ""
             )}
           >
-            {title.toUpperCase()}
-          </span>
-        </button>
-      ))}
+            <span>{icon}</span>
+            <span
+              className={cn(
+                activeTab === title ? "font-bold" : "font-normal",
+                "text-base"
+              )}
+            >
+              {title.toUpperCase()}
+            </span>
+          </button>
+        );
+      })}
 
       {data ? <AccountComp /> : null}
     </div>
