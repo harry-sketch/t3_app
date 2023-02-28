@@ -7,6 +7,7 @@ module.exports = {
         primary: "#1D9BF0",
         custom: {
           1: "#dae7ef",
+          2: "#EFF3F4",
         },
       },
     },

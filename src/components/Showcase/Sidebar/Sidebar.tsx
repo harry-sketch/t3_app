@@ -7,7 +7,8 @@ import { cn } from "@/utils/helpers";
 // Store
 import useTwitterStore from "@/Store/slices";
 import type { TaActiveTab } from "@/Store/slices/createTabSlice";
-import { useSession, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
+import { AccountComp } from "./AccountComp/AccountComp";
 
 const Sidebar = () => {
   const { data } = useSession();
@@ -64,15 +65,7 @@ const Sidebar = () => {
         </button>
       ))}
 
-      {data ? (
-        <button
-          onClick={() => void signOut()}
-          type="button"
-          className="absolute bottom-20 text-2xl font-bold capitalize"
-        >
-          {data?.user.name}
-        </button>
-      ) : null}
+      {data ? <AccountComp /> : null}
     </div>
   );
 };
