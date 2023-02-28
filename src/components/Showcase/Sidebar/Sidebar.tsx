@@ -37,7 +37,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="h-full w-[20rem]">
+    <div className="h-full w-[20rem] p-4">
       {tabs.map(({ icon, title }) => (
         <button
           onClick={() => setActiveTab(title)}
@@ -60,6 +60,8 @@ const Sidebar = () => {
           </span>
         </button>
       ))}
+
+      <div>{}</div>
     </div>
   );
 };

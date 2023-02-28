@@ -4,7 +4,7 @@ import { Timeline } from "./Timeline/Timeline";
 
 export const Showcase = () => {
   return (
-    <main className="flex h-full justify-center p-4">
+    <main className="flex h-full justify-center">
       <Sidebar />
       <Timeline />
       <Account />
