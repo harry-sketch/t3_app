@@ -11,7 +11,7 @@ const Account = () => {
   const { status } = useSession();
 
   return (
-    <div className="h-full w-[20rem] pl-4">
+    <div className="h-full w-[20rem] p-4">
       {status === "authenticated" ? <Story /> : <NewAccount />}
     </div>
   );

@@ -7,8 +7,11 @@ import { cn } from "@/utils/helpers";
 // Store
 import useTwitterStore from "@/Store/slices";
 import type { TaActiveTab } from "@/Store/slices/createTabSlice";
+import { useSession, signOut } from "next-auth/react";
 
 const Sidebar = () => {
+  const { data } = useSession();
+
   const activeTab = useTwitterStore((state) => state.activeTab);
 
   const setActiveTab = useTwitterStore((state) => state.setActiveTab);
@@ -37,7 +40,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="h-full w-[20rem] p-4">
+    <div className="relative h-full w-[20rem] p-4">
       {tabs.map(({ icon, title }) => (
         <button
           onClick={() => setActiveTab(title)}
@@ -61,7 +64,15 @@ const Sidebar = () => {
         </button>
       ))}
 
-      <div>{}</div>
+      {data ? (
+        <button
+          onClick={() => void signOut()}
+          type="button"
+          className="absolute bottom-20 text-2xl font-bold capitalize"
+        >
+          {data?.user.name}
+        </button>
+      ) : null}
     </div>
   );
 };
