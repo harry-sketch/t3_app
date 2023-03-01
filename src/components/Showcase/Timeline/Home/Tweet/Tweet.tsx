@@ -1,17 +1,24 @@
+import { useState } from "react";
+
 export const Tweet = () => {
+  const [tweetValue, setTweetValue] = useState("");
   return (
-    <div className="w-full">
+    <div className="flex w-full flex-col">
       <div className="relative">
         <textarea
+          value={tweetValue}
+          onChange={(e) => setTweetValue(e.target.value)}
           placeholder="what's happening?"
           className="w-full resize-none rounded-lg border-none bg-custom-2/95 p-4 text-black placeholder:text-black focus:outline-none"
           rows={3}
         />
-        <span className="absolute right-3 bottom-3 text-black">words</span>
+        <span className="absolute right-3 bottom-3 text-black">
+          {tweetValue.length}/words
+        </span>
       </div>
       <button
         type="button"
-        className="ml-auto rounded-lg bg-primary p-2.5 text-right"
+        className="ml-auto w-20 rounded-lg bg-primary p-2.5 text-center"
       >
         Tweet
       </button>
