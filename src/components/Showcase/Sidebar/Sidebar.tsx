@@ -1,5 +1,10 @@
 // Assets
-import { AiFillHome, AiFillProfile } from "react-icons/ai";
+import {
+  AiFillHome,
+  AiFillProfile,
+  AiOutlineProfile,
+  AiOutlineHome,
+} from "react-icons/ai";
 
 // Utils
 import { cn } from "@/utils/helpers";
@@ -29,25 +34,27 @@ const Sidebar = () => {
   }[] = [
     {
       title: "home",
-      icon: (
-        // Todo: Change the active and default color states for icons
-        <AiFillHome size={30} color={activeTab === "home" ? "black" : "gray"} />
-      ),
+      icon:
+        activeTab === "home" ? (
+          <AiFillHome size={30} />
+        ) : (
+          <AiOutlineHome size={30} />
+        ),
     },
 
     {
       title: "profile",
-      icon: (
-        <AiFillProfile
-          size={30}
-          color={activeTab === "profile" ? "black" : "gray"}
-        />
-      ),
+      icon:
+        activeTab === "profile" ? (
+          <AiFillProfile size={30} />
+        ) : (
+          <AiOutlineProfile size={30} />
+        ),
     },
   ];
 
   return (
-    <div className="relative h-full w-[20rem] p-4">
+    <div className="relative h-full w-[20rem] p-4 text-white">
       {tabs.map(({ icon, title }) => {
         if (title === "profile" && status === "unauthenticated") return;
         return (
@@ -55,21 +62,10 @@ const Sidebar = () => {
             onClick={() => setActiveTab(title)}
             type="button"
             key={`sidebar-${title}`}
-            // Todo:Add suitable bg for active states
-            className={cn(
-              "mb-2.5 flex items-center gap-2 last:mb-0",
-              activeTab === title ? "" : ""
-            )}
+            className={cn("mb-4 flex items-center gap-2 last:mb-0")}
           >
             <span>{icon}</span>
-            <span
-              className={cn(
-                activeTab === title ? "font-bold" : "font-normal",
-                "text-base"
-              )}
-            >
-              {title.toUpperCase()}
-            </span>
+            <span>{title.toUpperCase()}</span>
           </button>
         );
       })}

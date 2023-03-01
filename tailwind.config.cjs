@@ -6,8 +6,10 @@ module.exports = {
       colors: {
         primary: "#1D9BF0",
         custom: {
-          1: "#dae7ef",
-          2: "#EFF3F4",
+          1: "#FFFFFF",
+          2: "#B7BBC0",
+          3: "#202124",
+          4: "#EA80FC",
         },
       },
     },
