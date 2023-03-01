@@ -19,7 +19,7 @@ export const Footer = () => (
         <button
           onClick={() => void signIn()}
           type="button"
-          className="rounded-3xl bg-slate-50 px-4 py-2 text-base font-semibold"
+          className="rounded-3xl bg-slate-50 px-4 py-2 text-base font-semibold text-black"
         >
           SignUp
         </button>
