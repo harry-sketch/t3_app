@@ -19,8 +19,8 @@ export const Tweet = () => {
 
   const handleCreateTweet = () => {
     if (tweetValue.length < 0) return;
-
     createTweet.mutate({ tweet: tweetValue });
+    setTweetValue("");
   };
 
   return (
