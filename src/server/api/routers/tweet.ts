@@ -12,12 +12,16 @@ export const tweetRouter = createTRPCRouter({
       return ctx.prisma.tweet.create({
         data: {
           tweet: input.tweet,
-          userId: ctx.session.user.id,
+          user: {
+            connect: {
+              id: ctx.session.user.id,
+            },
+          },
         },
       });
     }),
 
-  getAll: publicProcedure.query(({ ctx }) => {
+  getAll: publicProcedure.input(z.object({})).query(({ ctx, input }) => {
     return ctx.prisma.tweet.findMany({});
   }),
 });

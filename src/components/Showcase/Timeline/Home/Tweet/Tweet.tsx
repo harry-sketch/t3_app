@@ -7,9 +7,12 @@ export const Tweet = () => {
 
   const { data } = useSession();
 
-  const { refetch } = api.tweet.getAll.useQuery(undefined, {
-    enabled: data?.user !== undefined,
-  });
+  const { refetch } = api.tweet.getAll.useQuery(
+    {},
+    {
+      enabled: data?.user !== undefined,
+    }
+  );
 
   const createTweet = api.tweet.create.useMutation({
     onSuccess: () => {

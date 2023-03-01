@@ -5,9 +5,12 @@ import { Tweet } from "./Tweet/Tweet";
 export const Home = () => {
   const { status } = useSession();
 
-  const { data: tweets } = api.tweet.getAll.useQuery(undefined, {
-    enabled: status === "authenticated",
-  });
+  const { data: tweets } = api.tweet.getAll.useQuery(
+    {},
+    {
+      enabled: status === "authenticated",
+    }
+  );
 
   return (
     <div className="w-full">
