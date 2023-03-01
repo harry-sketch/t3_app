@@ -17,7 +17,7 @@ import type { TaActiveTab } from "@/Store/slices/createTabSlice";
 import { AccountComp } from "./AccountComp/AccountComp";
 
 const Sidebar = () => {
-  const { data } = useSession();
+  const { data, status } = useSession();
 
   const activeTab = useTwitterStore((state) => state.activeTab);
 
@@ -49,6 +49,7 @@ const Sidebar = () => {
   return (
     <div className="relative h-full w-[20rem] p-4">
       {tabs.map(({ icon, title }) => {
+        if (title === "profile" && status === "unauthenticated") return;
         return (
           <button
             onClick={() => setActiveTab(title)}
